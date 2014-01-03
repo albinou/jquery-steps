@@ -1,6 +1,6 @@
 /*! 
- * jQuery Steps v1.0.4 - 12/17/2013
- * Copyright (c) 2013 Rafael Staib (http://www.jquery-steps.com)
+ * jQuery Steps v1.0.4-fork - 01/03/2014
+ * Copyright (c) 2014 Rafael Staib (http://www.jquery-steps.com)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
 ;(function ($, undefined)
@@ -1457,6 +1457,21 @@ $.fn.steps.setStep = function (index, step)
 $.fn.steps.skip = function (count)
 {
     throw new Error("Not yet implemented!");
+};
+
+/**
+ * Sets the current step index.
+ *
+ * @method setCurrentIndex
+ * @param index {Integer} The new step index (zero-based)
+ * @return {Boolean} Indicates whether the action executed
+ **/
+$.fn.steps.setCurrentIndex = function (index)
+{
+    var options = getOptions(this),
+        state = getState(this);
+
+    return goToStep(this, options, state, index);
 };
 
 
